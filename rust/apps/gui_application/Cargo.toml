@@ -1,0 +1,21 @@
+[package]
+name = "gui_application"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+shared_biology = { path = "../../core/shared_biology" }
+generator = { path = "../../engines/generator" }
+data_compiler = { path = "../../core/data_compiler" }
+
+slint = { version = "1.16.0", features = ["backend-winit", "unstable-wgpu-28", "renderer-femtovg-wgpu"] }
+wgpu = "28.0.0"
+anyhow = "1.0"
+tokio = "1.52.1"
+bytemuck = "1.25.0"
+glam = "0.32.1"
+plotters = "0.3.7"
+# NO external wgpu dependency needed!
+
+[build-dependencies]
+slint-build = "1.16.0"

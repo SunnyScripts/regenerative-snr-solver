@@ -1,0 +1,159 @@
+{
+    "Arterial Endothelial Cell": {
+        "precision": 0.8979278587874137,
+        "recall": 0.8387096774193549,
+        "f1-score": 0.8673091178650852,
+        "support": 8370.0
+    },
+    "B Cell": {
+        "precision": 0.987037743042318,
+        "recall": 0.8961578400830738,
+        "f1-score": 0.9394049346879536,
+        "support": 2889.0
+    },
+    "Basal Keratinocyte": {
+        "precision": 0.9668097169179889,
+        "recall": 0.9652768678424487,
+        "f1-score": 0.9660426843261318,
+        "support": 76318.0
+    },
+    "Capillary Endothelial Cell": {
+        "precision": 0.74989068648885,
+        "recall": 0.5492393915132106,
+        "f1-score": 0.6340696922081523,
+        "support": 6245.0
+    },
+    "Cornified Keratinocyte": {
+        "precision": 0.9845261121856866,
+        "recall": 0.9929769801014436,
+        "f1-score": 0.9887334887334888,
+        "support": 2563.0
+    },
+    "Dendritic Cell": {
+        "precision": 0.9498954173797299,
+        "recall": 0.9471039908996114,
+        "f1-score": 0.9484976503536336,
+        "support": 31647.0
+    },
+    "Fibroblast": {
+        "precision": 0.9964265490909691,
+        "recall": 0.9984520294389846,
+        "f1-score": 0.9974382609892,
+        "support": 181528.0
+    },
+    "Granular Keratinocyte": {
+        "precision": 0.833943833943834,
+        "recall": 0.7977108152300865,
+        "f1-score": 0.815425023877746,
+        "support": 4281.0
+    },
+    "Hair Follicle Cell": {
+        "precision": 0.903926649392067,
+        "recall": 0.9132466067904467,
+        "f1-score": 0.9085627278919742,
+        "support": 24829.0
+    },
+    "Lymphatic Endothelial Cell": {
+        "precision": 0.98466014281936,
+        "recall": 0.986660777385159,
+        "f1-score": 0.9856594449102061,
+        "support": 11320.0
+    },
+    "Macrophage": {
+        "precision": 0.9278302974406272,
+        "recall": 0.9434050733811601,
+        "f1-score": 0.9355528689668,
+        "support": 21327.0
+    },
+    "Mast Cell": {
+        "precision": 0.9803471393149049,
+        "recall": 0.985869966752863,
+        "f1-score": 0.98310079661095,
+        "support": 10828.0
+    },
+    "Merkel Cell": {
+        "precision": 1.0,
+        "recall": 0.625,
+        "f1-score": 0.7692307692307693,
+        "support": 16.0
+    },
+    "Monocyte": {
+        "precision": 0.9580057923045098,
+        "recall": 0.9385893798135387,
+        "f1-score": 0.9481981981981982,
+        "support": 4934.0
+    },
+    "NK Cell": {
+        "precision": 0.9580618892508144,
+        "recall": 0.909079201545396,
+        "f1-score": 0.9329280380625123,
+        "support": 7765.0
+    },
+    "Neutrophil": {
+        "precision": 0.9314285714285714,
+        "recall": 0.9235127478753541,
+        "f1-score": 0.9274537695590327,
+        "support": 353.0
+    },
+    "Proliferating Keratinocyte": {
+        "precision": 0.831066493955095,
+        "recall": 0.8447443493526443,
+        "f1-score": 0.8378496027859397,
+        "support": 9114.0
+    },
+    "Sebaceous Gland Cell": {
+        "precision": 0.9326811087817377,
+        "recall": 0.8139865826387477,
+        "f1-score": 0.8693009118541033,
+        "support": 4919.0
+    },
+    "Skeletal Muscle Cell": {
+        "precision": 1.0,
+        "recall": 0.8306451612903226,
+        "f1-score": 0.9074889867841409,
+        "support": 124.0
+    },
+    "Smooth Muscle Cell": {
+        "precision": 0.9939162176255867,
+        "recall": 0.9914252388007945,
+        "f1-score": 0.9926691655158808,
+        "support": 63442.0
+    },
+    "Spinous Keratinocyte": {
+        "precision": 0.9699577243299544,
+        "recall": 0.9735764996890951,
+        "f1-score": 0.9717637430091393,
+        "support": 146347.0
+    },
+    "Sweat Gland Cell": {
+        "precision": 0.9819390539138454,
+        "recall": 0.9808460003070781,
+        "f1-score": 0.9813922227556409,
+        "support": 26052.0
+    },
+    "T Cell": {
+        "precision": 0.9843945519299259,
+        "recall": 0.9882709636895127,
+        "f1-score": 0.9863289491133106,
+        "support": 82786.0
+    },
+    "Venous Endothelial Cell": {
+        "precision": 0.9330457162960357,
+        "recall": 0.9711493987049029,
+        "f1-score": 0.9517163227725577,
+        "support": 51888.0
+    },
+    "accuracy": 0.9687261583438583,
+    "macro avg": {
+        "precision": 0.9432383027758261,
+        "recall": 0.9002348141893846,
+        "f1-score": 0.918588223794273,
+        "support": 779885.0
+    },
+    "weighted avg": {
+        "precision": 0.9682906773316691,
+        "recall": 0.9687261583438583,
+        "f1-score": 0.9682982779412928,
+        "support": 779885.0
+    }
+}

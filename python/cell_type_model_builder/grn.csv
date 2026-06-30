@@ -1,0 +1,5 @@
+Category,Count,Example Genes / Purpose
+Bioelectric Hardware,30,"KCN, SCN, ATP1A, GJA1, CACNA. The actual ""circuitry."""
+Mechanical Scaffold,30,"CDH, VIM, COL1A1, ACTA2. Adhesion and structural integrity."
+Metabolic/Stress,30,"HIF1A, LDHA, SOD1, MT-CO1. Captures the ""hidden"" environmental variables."
+Identity/Turnover,38,"MKI67, TP53, KRT markers, MPZ (nerves), PECAM1 (vasc)."

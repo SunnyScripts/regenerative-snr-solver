@@ -1,0 +1,13 @@
+[package]
+name = "trainer"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+shared_biology = { path = "../../core/shared_biology" }
+generator = { path = "../../engines/generator" }
+data_compiler = { path = "../../core/data_compiler" }
+
+tokio = { version = "1.50.0", features = ["rt", "rt-multi-thread", "macros"] }
+anyhow = "1.0.102"
+candle-core = "0.10.2"

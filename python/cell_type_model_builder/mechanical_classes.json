@@ -1,0 +1,6 @@
+{
+  "Endothelial": 0,
+  "Epithelial": 1,
+  "Immune/Fluid": 2,
+  "Mesenchymal": 3
+}

@@ -1,0 +1,158 @@
+import { Button, VerticalBox, HorizontalBox, Slider, SpinBox } from "std-widgets.slint";
+
+export struct BroadStat { name: string, count: int, pct: float, color: color }
+
+export component AppWindow inherits Window {
+    title: "Bioelectric SDE Generator";
+    background: @linear-gradient(180deg, #1e1e1e 0%, #121212 100%);
+    width: 1400px;
+    height: 900px;
+
+    in-out property <image> viewport_texture;
+
+    in property <[BroadStat]> global_stats;
+    in property <int> active_cell_count: 0;
+    in-out property <float> z_slice: 0.1;
+    in property <image> ripley_chart;
+
+    in-out property <int> active_cmd: 1;
+    in-out property <float> p1_val: 20.0;
+    in-out property <float> p2_val: 15.0;
+    in-out property <float> p3_val: 0.0;
+    in-out property <float> p4_val: 0.0;
+
+    in-out property <float> epi_ratio: 0.8;
+    in-out property <float> mes_ratio: 0.2;
+
+    in property <string> hovered_cell_info: "Hover over a cell to see details";
+
+    callback mouse_wheel(float, float);
+    callback mouse_drag(float, float, bool);
+    callback viewport_clicked(float, float);
+    callback mouse_hover(float, float);
+    callback trigger_morphogenesis(int, float, float, float, float, float, float, float, float);
+
+    HorizontalBox {
+        VerticalBox {
+            width: 300px;
+            alignment: start;
+            spacing: 15px;
+
+            Text { text: "Base Cell Scale"; color: #aaaaaa; }
+            Slider {
+                minimum: 0.1;
+                maximum: 1.5;
+                value <=> root.z_slice; // TWO-WAY BINDING!
+            }
+
+//            Text { text: "Bioelectric Grammar"; color: white; font-weight: 700; }
+//            Text { text: "Morphogen Debugger"; font-size: 16px; font-weight: 700; color: white; }
+//
+//            // COMMAND SELECTOR
+//            Text { text: "Command ID (0=Intercalate, 1=Invaginate, etc)"; color: #aaa; }
+//            SpinBox {
+//                value <=> root.active_cmd; // TWO-WAY BINDING!
+//            }
+//
+//            // PARAMETERS P1-P4
+//            Text { text: "P1 (Depth/Amplitude/Length)"; color: #aaa; }
+//            HorizontalBox {
+//                padding: 0px;
+//                Text { text: round(root.p1_val * 100) / 100; color: white; width: 45px; vertical-alignment: center; }
+//                Slider { value <=> root.p1_val; minimum: -50.0; maximum: 50.0; }
+//            }
+//
+//            Text { text: "P2 (Width/Frequency/Radius)"; color: #aaa; }
+//            HorizontalBox {
+//                padding: 0px;
+//                Text { text: round(root.p2_val * 100) / 100; color: white; width: 45px; vertical-alignment: center; }
+//                Slider { value <=> root.p2_val; minimum: -50.0; maximum: 50.0; }
+//            }
+//
+//            Text { text: "P3 (Target X / Phase)"; color: #aaa; }
+//            HorizontalBox {
+//                padding: 0px;
+//                Text { text: round(root.p3_val * 100) / 100; color: white; width: 45px; vertical-alignment: center; }
+//                Slider { value <=> root.p3_val; minimum: -50.0; maximum: 50.0; }
+//            }
+//
+//            Text { text: "P4 (Target Y / Density)"; color: #aaa; }
+//            HorizontalBox {
+//                padding: 0px;
+//                Text { text: round(root.p4_val * 100) / 100; color: white; width: 45px; vertical-alignment: center; }
+//                Slider { value <=> root.p4_val; minimum: -50.0; maximum: 50.0; }
+//            }
+//
+//            // FRENCH FLAG RATIOS
+//            Text { text: "Epithelial Ratio (Red)"; color: #ff3b30; }
+//            Slider { value <=> root.epi_ratio; minimum: 0.0; maximum: 1.0; }
+//
+//            Text { text: "Mesenchymal Ratio (Yellow)"; color: #ffcc00; }
+//            Slider { value <=> root.mes_ratio; minimum: 0.0; maximum: 1.0; }
+//
+//            // SUBMIT BUTTON
+//            Button {
+//                text: "Inject & Generate Volume";
+//                clicked => {
+//                    root.trigger_morphogenesis(
+//                        root.active_cmd,
+//                        root.p1_val, root.p2_val, root.p3_val, root.p4_val,
+//                        root.epi_ratio, 0.0, root.mes_ratio, 0.0
+//                    );
+//                }
+//            }
+
+            Text { text: "Global Composition"; font-size: 16px; font-weight: 700; color: white; }
+
+            for stat in root.global_stats: HorizontalBox {
+                spacing: 10px;
+                Rectangle { width: 12px; height: 12px; border-radius: 6px; background: stat.color; }
+                Text { text: stat.name; color: #ccc; width: 100px; }
+                Text { text: stat.count + " cells"; color: white; width: 80px;}
+                Text { text: round(stat.pct) + "%"; color: #888; }
+            }
+
+            Text { text: "Total Cell Count: " + root.active_cell_count; color: #00ff00; }
+
+            Rectangle {
+                background: #2a2a2a; border-radius: 8px; padding: 10px;
+                Text { text: root.hovered_cell_info; color: #00ffff; font-size: 14px; wrap: word-wrap; }
+            }
+
+            Image { width: 250px; height: 150px; source: root.ripley_chart; }
+        }
+
+        // --- CENTER: THE 3D VIEWPORT ---
+        Rectangle {
+            background: #000000; border-radius: 12px; border-width: 1px; border-color: #333333;
+
+            Image { width: 100%; height: 100%; source: root.viewport_texture; }
+
+            TouchArea {
+                width: 100%; height: 100%;
+                property <float> last_x;
+                property <float> last_y;
+
+                pointer-event(event) =>
+                {
+                    if (event.kind == PointerEventKind.down) {
+                        self.last_x = self.mouse-x / self.width;
+                        self.last_y = self.mouse-y / self.height;
+                    } else if (event.kind == PointerEventKind.move) {
+                        let curr_x = self.mouse-x / self.width;
+                        let curr_y = self.mouse-y / self.height;
+                        root.mouse_hover(curr_x, curr_y);
+                        if (self.pressed) {
+                            // --- PASS THE SHIFT MODIFIER HERE ---
+                            root.mouse_drag(curr_x - self.last_x, curr_y - self.last_y, event.modifiers.shift);
+                            self.last_x = curr_x;
+                            self.last_y = curr_y;
+                        }
+                    }
+                }
+                scroll-event(event) => { root.mouse_wheel(event.delta-x / 1px, event.delta-y / 1px); return accept; }
+                clicked => { root.viewport_clicked(self.mouse-x / self.width, self.mouse-y / self.height); }
+            }
+        }
+    }
+}

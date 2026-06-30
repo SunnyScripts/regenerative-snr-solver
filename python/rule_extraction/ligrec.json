@@ -1,0 +1,13 @@
+{
+  "lr_rules": [
+    {
+      "broad_source": "Epithelial",
+      "broad_target": "Mesenchymal",
+      "ligand_gene": "WNT10A",
+      "receptor_gene": "FZD7",
+      "min_expression": 1.5,
+      "granular_source": "Hair Follicle Stem Cell",
+      "granular_target": "Dermal Papilla Cell"
+    }
+  ]
+}

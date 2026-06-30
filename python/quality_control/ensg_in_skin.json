@@ -1,0 +1,27 @@
+{
+  "dropped_ensgs_from_skin": [
+    "ENSG00000271254",
+    "ENSG00000273554",
+    "ENSG00000273748",
+    "ENSG00000276256",
+    "ENSG00000276345",
+    "ENSG00000277196",
+    "ENSG00000277400",
+    "ENSG00000277666",
+    "ENSG00000278384",
+    "ENSG00000278633",
+    "ENSG00000278704",
+    "ENSG00000278817",
+    "ENSG00000283886"
+  ],
+  "dropped_symbols_from_spatial": [
+    "AARS",
+    "ARNTL",
+    "H2AFX",
+    "HIST1H4C",
+    "LOR",
+    "NDUFA4L2"
+  ]
+}
+  
+    
