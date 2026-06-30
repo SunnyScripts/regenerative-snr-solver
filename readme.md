@@ -1,6 +1,8 @@
 # 🧬 Regenerative SNR Solver
 **Measuring Signal-to-Noise Ratio in Non-Neural Networks for Tissue Regeneration**
 
+![app_launch](app_image.png)
+
 Traditional Patch-seq allows researchers to simultaneously measure a cell's RNA and its electrical voltage—but it is physically limited to isolated cells (like neurons) and destroys the 3D morphology of solid tissues.
 
 This project bridges the gap between **Bottom-Up Single-Cell Omics** and **Top-Down Morphogenetic Bioelectrics** (the Levin Paradigm). It is a highly parallelized, Rust and WebGPU-accelerated biophysical solver that generates the localized bioelectric field (the Electrome) of non-neural 3D tissues (like skin and gut) directly from spatial transcriptomics data, specifically designed to isolate regenerative bioelectric signals from transcriptomic noise.
@@ -56,5 +58,3 @@ The engine will be benchmarked against standard biological PDE solvers (e.g., BE
 *   **Machine Learning:** PyTorch, scvi-tools (`scVI`, `scANVI`, `gimVI`)
 *   **Data Processing:** Scanpy, AnnData, Pandas, NumPy
 *   **Domain Focus:** Bioelectric Signal-to-Noise Ratio (SNR), Spatial Transcriptomics, Systems Biology, SDEs
-
-![Alternative Text](app_image.png)
